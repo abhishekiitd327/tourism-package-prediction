@@ -15,7 +15,7 @@ from huggingface_hub import login
 import os
 import sys
 
-HF_TOKEN = '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'
+HF_TOKEN = os.getenv('HF_TOKEN')
 login(token=HF_TOKEN)
 
 
@@ -192,8 +192,6 @@ def upload_processed_datasets():
     
 # Load data
 df = load_data_from_hf()
-if df is None:
-    return False
 
 # Clean and preprocess
 df_clean, encoders = clean_and_preprocess_data(df)
