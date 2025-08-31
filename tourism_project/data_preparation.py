@@ -200,12 +200,5 @@ df_clean, encoders = clean_and_preprocess_data(df)
 train_df, test_df = split_and_save_data(df_clean)
 
 # Upload processed datasets
-if setup_hf_authentication():
-    upload_success = upload_processed_datasets()
-    if upload_success:
-        print("Data preparation pipeline completed successfully!")
-    else:
-        print("Data preparation completed but upload failed")
-else:
-    print("Data preparation completed but authentication failed for upload")
+upload_processed_datasets()
 
